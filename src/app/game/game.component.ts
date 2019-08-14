@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-game',
@@ -7,7 +7,6 @@ import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular
 })
 
 export class GameComponent implements OnInit  {
-  @ViewChild('rectangle', {static: false}) rect: ElementRef;
   positionX: number;
   positionY: number;
   keydown: boolean;
@@ -23,11 +22,11 @@ export class GameComponent implements OnInit  {
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    let x = document.getElementsByClassName('rectangle')[0];
+    let x = document.getElementsByClassName('table')[0];
     let y = 300;
-
     if (event.key === "ArrowLeft") {
       if (this.positionX != 0) {
+        //document.getElementsByClassName('table')[0].className = "rotate90-left"
         this.positionX = this.positionX - 20;
       }
     } else if (event.key === "ArrowRight") {
@@ -35,6 +34,7 @@ export class GameComponent implements OnInit  {
         this.positionX = this.positionX + 20;
       }
     } else if (event.key === "ArrowUp" && (!this.keydown)) {
+      document.getElementsByClassName('table')[0].className = "rotate90-left"
       this.keydown = true;
       for (let i = 50; i < 300; i++) {
          this.delayUp(x, i);
@@ -45,7 +45,9 @@ export class GameComponent implements OnInit  {
           this.delayDown(x, i, y);
        }
       }, 500);
-      setTimeout(() => {
+      setTimeout(() => {  // jump ends
+        document.getElementsByClassName('rotate90-left')[0].className = "rotate90-left"
+        document.getElementsByClassName('rotate90-left')[0].className = "table"
         this.keydown = false;
       }, 1000);
     }
