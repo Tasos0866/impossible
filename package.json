@@ -18,7 +18,7 @@
     "@angular/forms": "~8.2.0",
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
-    "@angular/router": "~8.2.0",
+    "@angular/router": "^8.2.2",
     "@material/dialog": "^3.1.0",
     "angular-font-awesome": "^3.1.2",
     "ngx-lightbox": "^2.0.0",
