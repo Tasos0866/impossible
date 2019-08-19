@@ -13,9 +13,9 @@ export class HomeComponent implements OnInit {
   private album1 = [];
   private album2 = [];
 
-  constructor(private _lightbox: Lightbox) {
-    this.optionsImage = "assets/img/options.gif";
-    this.helpImage = "assets/img/helping.jpg";
+  constructor(private lightBox: Lightbox) {
+    this.optionsImage = 'assets/img/options.gif';
+    this.helpImage = 'assets/img/helping.jpg';
 
     this.album1.push(
       {
@@ -36,10 +36,10 @@ export class HomeComponent implements OnInit {
   }
 
   help(): void {
-    this._lightbox.open(this.album2, 0);
+    this.lightBox.open(this.album2, 0);
   }
 
   options(): void {
-    this._lightbox.open(this.album1, 0);
+    this.lightBox.open(this.album1, 0);
   }
 }
