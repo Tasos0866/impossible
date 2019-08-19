@@ -13,6 +13,8 @@ export class GameComponent implements OnInit  {
   leftKeyDown: boolean;
   rightKeyDown: boolean;
   downKeyDown: boolean;
+  upKeyDown2: boolean;
+  jumpClass: string;
 
   constructor() {
     this.positionX = (window.innerWidth - 250) / 2;
@@ -21,6 +23,8 @@ export class GameComponent implements OnInit  {
     this.leftKeyDown = false;
     this.rightKeyDown = false;
     this.downKeyDown = false;
+    this.upKeyDown2 = false;
+    this.jumpClass = 'table';
    }
 
   ngOnInit() { 
@@ -45,10 +49,14 @@ export class GameComponent implements OnInit  {
       if (this.positionX < (window.innerWidth - 250)) {
         this.positionX = this.positionX + 20;
       }
-    } else if ((event.key === "ArrowUp" || event.key === " ") && (!this.upKeyDown)) {
+    } else if ((event.key === "ArrowUp" || event.key === " ") && (!this.upKeyDown) && (!this.leftKeyDown) && (!this.rightKeyDown) && (!this.downKeyDown)) {
       this.upKeyDown = true;
-      let x = document.getElementsByClassName('table')[0];
-      document.getElementsByClassName('table')[0].className = "rotate90-right";
+      this.upKeyDown2 = true;
+      let x = document.getElementsByClassName(this.jumpClass)[0];
+      if (this.jumpClass === 'table') {
+        this.setClass('table', 'rotate90-right');
+        this.jumpClass = 'rotate90-right';
+      }
       for (let i = 50; i < 300; i++) {
           this.delayUp(x, i);
       }
@@ -59,15 +67,18 @@ export class GameComponent implements OnInit  {
         }
       }, 500);
       setTimeout(() => {  // jumping is finished
-        document.getElementsByClassName('rotate90-right')[0].className = "rotate90-left"
-        document.getElementsByClassName('rotate90-left')[0].className = "table"
+        if (!this.upKeyDown2) {
+          this.setClass('rotate90-right', 'rotate90-left');
+          this.setClass('rotate90-left', 'table');
+          this.jumpClass = 'table';
+        }
         this.upKeyDown = false;
-      }, 1000);
+      }, 1100);
     } else if (event.key === "ArrowDown" && (!this.upKeyDown) && (!this.leftKeyDown) && (!this.rightKeyDown)) {
       if (!this.downKeyDown) {
+        this.positionY = -65;
         this.setClass('table', 'hide');
         this.downKeyDown = true;
-        this.positionY = this.positionY - 115;
       }
     }
   }
@@ -87,8 +98,12 @@ export class GameComponent implements OnInit  {
     if (event.key === "ArrowDown" && (!this.upKeyDown) && (!this.leftKeyDown) && (!this.rightKeyDown)) {
       this.setClass('hide', 'show');
       this.setClass('show', 'table');
-      this.positionY = this.positionY + 115;
+      this.positionY = 50;
       this.downKeyDown = false;
+    }
+    if ((event.key === "ArrowUp" || event.key === " ") && (!this.leftKeyDown) && (!this.rightKeyDown) && (!this.downKeyDown)) {
+      this.upKeyDown2 = false;
+      this.jumpClass = 'table';
     }
   }
 
