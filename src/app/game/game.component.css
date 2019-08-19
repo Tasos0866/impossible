@@ -125,3 +125,23 @@
     background-size: auto;
     transform: rotate(-90deg);
 }
+
+.hide {
+    position: absolute;
+    width: 250px;
+    height: 159px;
+    background-image: url('../../assets/img/table_tennis2.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    transform: rotate(165deg);
+}
+
+.show {
+    position: absolute;
+    width: 250px;
+    height: 159px;
+    background-image: url('../../assets/img/table_tennis2.png');
+    background-repeat: no-repeat;
+    background-size: auto;
+    transform: rotate(-165deg);
+}

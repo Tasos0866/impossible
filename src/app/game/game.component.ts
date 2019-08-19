@@ -12,6 +12,7 @@ export class GameComponent implements OnInit  {
   upKeyDown: boolean;
   leftKeyDown: boolean;
   rightKeyDown: boolean;
+  downKeyDown: boolean;
 
   constructor() {
     this.positionX = (window.innerWidth - 250) / 2;
@@ -19,6 +20,7 @@ export class GameComponent implements OnInit  {
     this.upKeyDown = false;
     this.leftKeyDown = false;
     this.rightKeyDown = false;
+    this.downKeyDown = false;
    }
 
   ngOnInit() { 
@@ -61,6 +63,12 @@ export class GameComponent implements OnInit  {
         document.getElementsByClassName('rotate90-left')[0].className = "table"
         this.upKeyDown = false;
       }, 1000);
+    } else if (event.key === "ArrowDown" && (!this.upKeyDown) && (!this.leftKeyDown) && (!this.rightKeyDown)) {
+      if (!this.downKeyDown) {
+        this.setClass('table', 'hide');
+        this.downKeyDown = true;
+        this.positionY = this.positionY - 115;
+      }
     }
   }
 
@@ -75,6 +83,12 @@ export class GameComponent implements OnInit  {
       this.setClass('rotate90-right', 'rotate90-left');
       this.setClass('rotate90-left', 'table');
       this.rightKeyDown = false;
+    }
+    if (event.key === "ArrowDown" && (!this.upKeyDown) && (!this.leftKeyDown) && (!this.rightKeyDown)) {
+      this.setClass('hide', 'show');
+      this.setClass('show', 'table');
+      this.positionY = this.positionY + 115;
+      this.downKeyDown = false;
     }
   }
 
