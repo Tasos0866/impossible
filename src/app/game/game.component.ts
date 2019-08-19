@@ -9,12 +9,16 @@ import { Component, OnInit, HostListener } from '@angular/core';
 export class GameComponent implements OnInit  {
   positionX: number;
   positionY: number;
-  keydown: boolean;
+  upKeyDown: boolean;
+  leftKeyDown: boolean;
+  rightKeyDown: boolean;
 
   constructor() {
-    this.positionX = 500;
+    this.positionX = (window.innerWidth - 250) / 2;
     this.positionY = 50;
-    this.keydown = false;
+    this.upKeyDown = false;
+    this.leftKeyDown = false;
+    this.rightKeyDown = false;
    }
 
   ngOnInit() { 
@@ -22,34 +26,55 @@ export class GameComponent implements OnInit  {
 
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    let x = document.getElementsByClassName('table')[0];
     let y = 300;
-    if (event.key === "ArrowLeft") {
-      if (this.positionX != 0) {
-        //document.getElementsByClassName('table')[0].className = "rotate90-left"
+    if (event.key === "ArrowLeft" && (!this.upKeyDown) && (!this.rightKeyDown)) {
+      if (this.leftKeyDown === false) {
+        this.leftKeyDown = true;
+        this.setClass('table', 'rotate90-left');
+      }
+      if (this.positionX > 0) {
         this.positionX = this.positionX - 20;
       }
-    } else if (event.key === "ArrowRight") {
-      if (this.positionX != (window.innerWidth - 100)) {
+    } else if (event.key === "ArrowRight" && (!this.upKeyDown) && (!this.leftKeyDown)) {
+      if (this.rightKeyDown === false) {
+        this.rightKeyDown = true;
+        this.setClass('table', 'rotate90-right');
+      }
+      if (this.positionX < (window.innerWidth - 250)) {
         this.positionX = this.positionX + 20;
       }
-    } else if (event.key === "ArrowUp" && (!this.keydown)) {
-      document.getElementsByClassName('table')[0].className = "rotate90-left"
-      this.keydown = true;
+    } else if ((event.key === "ArrowUp" || event.key === " ") && (!this.upKeyDown)) {
+      this.upKeyDown = true;
+      let x = document.getElementsByClassName('table')[0];
+      document.getElementsByClassName('table')[0].className = "rotate90-right";
       for (let i = 50; i < 300; i++) {
-         this.delayUp(x, i);
+          this.delayUp(x, i);
       }
       setTimeout(() => {
         for (let i = 50; i < 300; i++) {
           y--;
           this.delayDown(x, i, y);
-       }
+        }
       }, 500);
-      setTimeout(() => {  // jump ends
-        document.getElementsByClassName('rotate90-left')[0].className = "rotate90-left"
+      setTimeout(() => {  // jumping is finished
+        document.getElementsByClassName('rotate90-right')[0].className = "rotate90-left"
         document.getElementsByClassName('rotate90-left')[0].className = "table"
-        this.keydown = false;
+        this.upKeyDown = false;
       }, 1000);
+    }
+  }
+
+  @HostListener('document:keyup', ['$event'])
+  handleKeyboardEvent2(event: KeyboardEvent) {
+    if (event.key === "ArrowLeft" && (!this.upKeyDown) && (!this.rightKeyDown)) {
+      this.setClass('rotate90-left', 'rotate90-right');
+      this.setClass('rotate90-right', 'table');
+      this.leftKeyDown = false;
+    }
+    if (event.key === "ArrowRight" && (!this.upKeyDown) && (!this.leftKeyDown)) {
+      this.setClass('rotate90-right', 'rotate90-left');
+      this.setClass('rotate90-left', 'table');
+      this.rightKeyDown = false;
     }
   }
 
@@ -63,5 +88,12 @@ export class GameComponent implements OnInit  {
     setTimeout(function() {
       x.style.bottom = y.toString() + 'px';
     }, 2 * i);
+  }
+
+  setClass(currentClass: string, futureClass: string) {
+    let element = document.getElementsByClassName(currentClass);
+    if (element.length != 0) {
+      document.getElementsByClassName(currentClass)[0].className = futureClass;
+    }
   }
 }

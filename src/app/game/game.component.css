@@ -123,5 +123,5 @@
     background-image: url('../../assets/img/table_tennis2.png');
     background-repeat: no-repeat;
     background-size: auto;
-    transform: rotate(90deg);
+    transform: rotate(-90deg);
 }
