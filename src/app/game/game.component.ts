@@ -95,7 +95,7 @@ export class GameComponent implements OnInit  {
       this.setClass('rotate90-left', 'table');
       this.rightKeyDown = false;
     }
-    if (event.key === "ArrowDown" && (!this.upKeyDown) && (!this.leftKeyDown) && (!this.rightKeyDown)) {
+    if (event.key === "ArrowDown" && (!this.upKeyDown)) {
       this.setClass('hide', 'show');
       this.setClass('show', 'table');
       this.positionY = 50;
