@@ -216,6 +216,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    animation: hideAnimation 5s forwards;
+    animation-delay: 2s;
 }
 
 @media screen and (max-width: 1700px) {
@@ -259,6 +261,8 @@
     top: 0;
     right: 0;
     padding: 20px;
+    animation: hideAnimation 5s forwards;
+    animation-delay: 10s;
 }
 
 .inner-arrow-up {
@@ -289,6 +293,16 @@
     }
     100%{
         fill:#ececec;
+    }
+}
+
+@keyframes hideAnimation {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        visibility: hidden;
     }
 }
 
