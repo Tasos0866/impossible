@@ -148,55 +148,55 @@
 
 .arrow {
     fill:#ff0000c4;
-    animation: mymove 2s linear infinite;
+    animation: thisIsYouAnimation 2s linear infinite;
 }
 
 .p1 {
-    animation: mymove 0.5s linear;
+    animation: thisIsYouAnimation 0.5s linear;
     animation-delay: 0s;
 }
 
 .p2 {
-    animation: mymove 0.5s linear;
+    animation: thisIsYouAnimation 0.5s linear;
     animation-delay: 0.1s;
 }
 
 .p3 {
-    animation: mymove 0.5s linear;
+    animation: thisIsYouAnimation 0.5s linear;
     animation-delay: 0.2s;
 }
 
 .p4 {
-    animation: mymove 0.5s linear;
+    animation: thisIsYouAnimation 0.5s linear;
     animation-delay: 0.3s;
 }
 
 .p5 {
-    animation: mymove 0.5s linear;
+    animation: thisIsYouAnimation 0.5s linear;
     animation-delay: 0.4s;
 }
 
 .p6 {
-    animation: mymove 0.5s linear;
+    animation: thisIsYouAnimation 0.5s linear;
     animation-delay: 0.5s;
 }
 
 .p7 {
-    animation: mymove 0.5s linear;
+    animation: thisIsYouAnimation 0.5s linear;
     animation-delay: 0.6s;
 }
 
 .p8 {
-    animation: mymove 0.5s linear;
+    animation: thisIsYouAnimation 0.5s linear;
     animation-delay: 0.7s;
 }
 
 .p9 {
-    animation: mymove 0.5s linear;
+    animation: thisIsYouAnimation 0.5s linear;
     animation-delay: 0.8s;
 }
 
-@keyframes mymove {
+@keyframes thisIsYouAnimation {
     0%{
         transform: translateY(0%);
     }
@@ -252,4 +252,11 @@
     .svg-container-this {
         height: 100px;
     }
+}
+
+.svg-container-arrows {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
 }
