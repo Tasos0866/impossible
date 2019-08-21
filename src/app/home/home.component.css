@@ -126,14 +126,14 @@ button:hover {
     animation-delay: 9.5s;
 }
 
-/* @keyframes animate {
+@keyframes animate {
     0%{
         transform: translateY(-800px) rotate(360deg);
     }
     100%{
         transform: translateY(0) rotate(0deg);
     }
-} */
+}
 
 .box-area li{
     position: absolute;
@@ -216,7 +216,7 @@ button:hover {
     animation-delay: 9.5s;
 }
 
-/* @keyframes animate2 {
+@keyframes animate2 {
     0%{
         transform: translateX(0px) rotate(360deg);
         opacity: 1;
@@ -225,4 +225,4 @@ button:hover {
         transform: translateX(2000px) rotate(0deg);
         opacity: 0.7;
     }
-} */
+}

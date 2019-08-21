@@ -23,7 +23,7 @@
     z-index: -1;
 }
 
-@keyframes animatedddloud {
+@keyframes animateCloud {
     0% {
         margin-left: -1000px;
     }
