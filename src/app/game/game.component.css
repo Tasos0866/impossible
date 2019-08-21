@@ -23,16 +23,6 @@
     z-index: -1;
 }
 
-.svg-container {
-    position: absolute;
-    min-width: 500px;
-    width: 80%;
-    height: 70%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 @keyframes animatedddloud {
     0% {
         margin-left: -1000px;
@@ -218,39 +208,48 @@
     }
 }
 
+.svg-container-this {
+    position: absolute;
+    min-width: 500px;
+    width: 80%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 @media screen and (max-width: 1700px) {
-    .svg-container {
+    .svg-container-this {
       height: 60%;
     }
 }
 
 @media screen and (max-width: 1500px) {
-    .svg-container {
+    .svg-container-this {
       height: 50%;
     }
 }
 
 @media screen and (max-width: 1400px) {
-    .svg-container {
+    .svg-container-this {
       height: 45%;
     }
 }
 
 @media screen and (max-width: 1200px) {
-    .svg-container {
+    .svg-container-this {
         height: 35%;
     }
 }
 
 @media screen and (max-width: 1150px) {
-    .svg-container {
+    .svg-container-this {
         height: 25%;
     }
 }
 
 @media screen and (max-width: 900px) {
-    .svg-container {
+    .svg-container-this {
         height: 100px;
     }
 }
