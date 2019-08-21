@@ -260,3 +260,35 @@
     right: 0;
     padding: 20px;
 }
+
+.inner-arrow-up {
+    animation: arrowKeysAnimation 2s infinite;
+}
+
+.inner-arrow-down {
+    animation: arrowKeysAnimation 2s infinite;
+    animation-delay: 0.7s;
+}
+
+.inner-arrow-left {
+    animation: arrowKeysAnimation 2s infinite;
+    animation-delay: 1.05s;
+}
+
+.inner-arrow-right {
+    animation: arrowKeysAnimation 2s infinite;
+    animation-delay: 0.35s;
+}
+
+@keyframes arrowKeysAnimation {
+    0%{
+        fill:#ff0b0b;
+    }
+    40%{
+        fill:#ececec;
+    }
+    100%{
+        fill:#ececec;
+    }
+}
+
