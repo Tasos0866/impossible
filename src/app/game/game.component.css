@@ -33,23 +33,31 @@
 }
 
 .x1 {
+    position:relative;
     animation: animateCloud 20s linear infinite;
     transform: scale(0.35);
+    z-index:1;
 }
 
 .x2 {
+    position:relative;
     animation: animateCloud 35s linear infinite;
     transform: scale(0.45);
+    z-index:1;
 }
 
 .x3 {
+    position:relative;
     animation: animateCloud 25s linear infinite;
     transform: scale(0.33);
+    z-index:1;
 }
 
 .x4 {
+    position:relative;
     animation: animateCloud 18s linear infinite;
     transform: scale(0.3);
+    z-index:1;
 }
 
 .cloud {
@@ -68,7 +76,7 @@
     background: white;
     content: '';
     position: absolute;
-    z-index: -1;
+    z-index: 1;
 }
 
 .cloud:after {
@@ -263,6 +271,7 @@
     padding: 100px;
     animation: hideAnimation 5s forwards;
     animation-delay: 10s;
+    z-index: -2;
 }
 
 .inner-arrow-up {
@@ -305,4 +314,16 @@
         visibility: hidden;
     }
 }
-  
+
+.github {
+    position: absolute;
+    background-color: #b7ddee;
+    top: 0;
+    right: 0;
+    border: none;
+    cursor: pointer;
+    outline: 0;
+    z-index: 0;
+    padding-top: 15px;
+    padding-right: 30px;
+}

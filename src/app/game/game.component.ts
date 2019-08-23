@@ -126,4 +126,8 @@ export class GameComponent implements OnInit  {
       document.getElementsByClassName(currentClass)[0].className = futureClass;
     }
   }
+
+  newTabGithub() {
+    window.open('https://github.com/Tasos0866/impossible', '_blank');
+  }
 }
