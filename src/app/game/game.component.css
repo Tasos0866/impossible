@@ -23,14 +23,14 @@
     z-index: -1;
 }
 
-/* @keyframes animateCloud {
+@keyframes animateCloud {
     0% {
         margin-left: -1000px;
     }
     100% {
         margin-left: 100%;
     }
-} */
+}
 
 .x1 {
     animation: animateCloud 20s linear infinite;
@@ -305,4 +305,4 @@
         visibility: hidden;
     }
 }
-
+  

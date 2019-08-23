@@ -56,7 +56,7 @@ button:hover {
     position: absolute;
     display: block;
     list-style: none;
-    animation: animate 8s linear infinite;
+    animation: animateAsteroids 8s linear infinite;
     bottom: -150px;
     background-image: url("../../assets/img/asteroid.png");
     background-repeat: no-repeat;
@@ -126,20 +126,20 @@ button:hover {
     animation-delay: 9.5s;
 }
 
-/* @keyframes animate {
+@keyframes animateAsteroids {
     0%{
         transform: translateY(-800px) rotate(360deg);
     }
     100%{
         transform: translateY(0) rotate(0deg);
     }
-} */
+}
 
 .box-area li{
     position: absolute;
     display: block;
     list-style: none;
-    animation: animate2 15s linear infinite;
+    animation: animateRectangles 15s linear infinite;
     background-color: rgb(195, 0, 255);
     z-index: -1;
 }
@@ -216,7 +216,7 @@ button:hover {
     animation-delay: 9.5s;
 }
 
-/* @keyframes animate2 {
+@keyframes animateRectangles {
     0%{
         transform: translateX(0px) rotate(360deg);
         opacity: 1;
@@ -225,4 +225,4 @@ button:hover {
         transform: translateX(2000px) rotate(0deg);
         opacity: 0.7;
     }
-} */
+}
