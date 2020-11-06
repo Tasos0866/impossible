@@ -1,5 +1,9 @@
-# Impossible
+# Impossible (mini game)
+Have you ever dreamed of being a table? What is this project anyway?
 
+Find out here: [here](https://tasos0866.github.io/impossible/home)
+
+---
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.2.0.
 
 ## Development server
